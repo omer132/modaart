@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import { getProducts } from '@/lib/data'
 
-interface Product {
+export interface Product {
   id: number
   name: string
   price: number

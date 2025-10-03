@@ -19,8 +19,8 @@ import {
 import { ProductModal } from './ProductModal'
 import { DeleteConfirmationModal } from './DeleteConfirmationModal'
 import { CouponModal } from './CouponModal'
-import { useProducts } from '@/contexts/ProductContext'
-import { useCoupons } from '@/contexts/CouponContext'
+import { useProducts, type Product } from '@/contexts/ProductContext'
+import { useCoupons, type Coupon } from '@/contexts/CouponContext'
 
 // Gerçek istatistikler hesaplama fonksiyonu
 const calculateStats = (products: any[]) => {
@@ -45,14 +45,14 @@ export function AdminDashboard() {
   const [searchTerm, setSearchTerm] = useState('')
   const [filterStatus, setFilterStatus] = useState('all')
   const [isProductModalOpen, setIsProductModalOpen] = useState(false)
-  const [editingProduct, setEditingProduct] = useState(null)
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null)
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [productToDelete, setProductToDelete] = useState<any>(null)
   const [isDeleting, setIsDeleting] = useState(false)
   const [customers, setCustomers] = useState<any[]>([])
   const [searchCustomer, setSearchCustomer] = useState('')
   const [isCouponModalOpen, setIsCouponModalOpen] = useState(false)
-  const [editingCoupon, setEditingCoupon] = useState(null)
+  const [editingCoupon, setEditingCoupon] = useState<Coupon | null>(null)
   const [searchCoupon, setSearchCoupon] = useState('')
 
   const handleLogout = () => {

@@ -30,7 +30,7 @@ export function ProductModal({ isOpen, onClose, product, onSave }: ProductModalP
     status: 'active'
   })
 
-  const [errors, setErrors] = useState<any>({})
+  const [errors, setErrors] = useState<Record<string, string>>({})
   const [isImageGalleryOpen, setIsImageGalleryOpen] = useState(false)
   const [uploadErrors, setUploadErrors] = useState<string[]>([])
   const [isUploading, setIsUploading] = useState(false)
@@ -205,12 +205,12 @@ export function ProductModal({ isOpen, onClose, product, onSave }: ProductModalP
   }
 
   const validateForm = () => {
-    const newErrors: any = {}
+    const newErrors: Record<string, string> = {}
     
     if (!formData.name.trim()) newErrors.name = 'Ürün adı gerekli'
-    if (!formData.price || formData.price <= 0) newErrors.price = 'Geçerli bir fiyat girin'
+    if (!formData.price || Number(formData.price) <= 0) newErrors.price = 'Geçerli bir fiyat girin'
     if (!formData.category) newErrors.category = 'Kategori seçin'
-    if (!formData.stock || formData.stock < 0) newErrors.stock = 'Geçerli bir stok miktarı girin'
+    if (!formData.stock || Number(formData.stock) < 0) newErrors.stock = 'Geçerli bir stok miktarı girin'
     if (!formData.description.trim()) newErrors.description = 'Açıklama gerekli'
     
     setErrors(newErrors)

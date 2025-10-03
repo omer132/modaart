@@ -88,8 +88,8 @@ export function DogaKoleksiyonu() {
           <motion.div 
             className="absolute top-4 left-1/4 opacity-30"
             style={{ 
-              x: useTransform(springX, [0, window.innerWidth], [-10, 10]),
-              y: useTransform(springY, [0, window.innerHeight], [-5, 5])
+              x: useTransform(springX, [0, typeof window !== 'undefined' ? window.innerWidth : 1920], [-10, 10]),
+              y: useTransform(springY, [0, typeof window !== 'undefined' ? window.innerHeight : 1080], [-5, 5])
             }}
             animate={{ 
               rotate: [0, 5, -5, 0],
@@ -107,8 +107,8 @@ export function DogaKoleksiyonu() {
           <motion.div 
             className="absolute top-8 right-1/3 opacity-25"
             style={{ 
-              x: useTransform(springX, [0, window.innerWidth], [5, -5]),
-              y: useTransform(springY, [0, window.innerHeight], [3, -3])
+              x: useTransform(springX, [0, typeof window !== 'undefined' ? window.innerWidth : 1920], [5, -5]),
+              y: useTransform(springY, [0, typeof window !== 'undefined' ? window.innerHeight : 1080], [3, -3])
             }}
             animate={{ 
               rotate: [0, -3, 3, 0],
@@ -126,8 +126,8 @@ export function DogaKoleksiyonu() {
           <motion.div 
             className="absolute top-12 left-1/2 opacity-20"
             style={{ 
-              x: useTransform(springX, [0, window.innerWidth], [-8, 8]),
-              y: useTransform(springY, [0, window.innerHeight], [-2, 2])
+              x: useTransform(springX, [0, typeof window !== 'undefined' ? window.innerWidth : 1920], [-8, 8]),
+              y: useTransform(springY, [0, typeof window !== 'undefined' ? window.innerHeight : 1080], [-2, 2])
             }}
             animate={{ 
               rotate: [0, 8, -8, 0],

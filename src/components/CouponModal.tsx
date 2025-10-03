@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import { X, Tag, Percent, Users, Calendar } from 'lucide-react'
+import { type Coupon } from '@/contexts/CouponContext'
 
 interface CouponModalProps {
   isOpen: boolean
   onClose: () => void
-  coupon?: any
-  onSave: (coupon: any) => void
+  coupon?: Coupon | null
+  onSave: (coupon: Omit<Coupon, 'id' | 'createdAt' | 'usageCount'>) => void
 }
 
 export function CouponModal({ isOpen, onClose, coupon, onSave }: CouponModalProps) {
@@ -18,7 +19,7 @@ export function CouponModal({ isOpen, onClose, coupon, onSave }: CouponModalProp
     isActive: true
   })
 
-  const [errors, setErrors] = useState<any>({})
+  const [errors, setErrors] = useState<Record<string, string>>({})
 
   // Update form when coupon prop changes
   useEffect(() => {
@@ -59,7 +60,7 @@ export function CouponModal({ isOpen, onClose, coupon, onSave }: CouponModalProp
   }
 
   const validateForm = () => {
-    const newErrors: any = {}
+    const newErrors: Record<string, string> = {}
     
     if (!formData.code.trim()) {
       newErrors.code = 'Kupon kodu gerekli'
@@ -213,5 +214,6 @@ export function CouponModal({ isOpen, onClose, coupon, onSave }: CouponModalProp
     </div>
   )
 }
+
 
 

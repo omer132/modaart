@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
-interface Coupon {
+export interface Coupon {
   id: number
   code: string
   discount: number // Percentage discount (e.g., 20 for 20%)

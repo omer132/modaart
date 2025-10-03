@@ -233,10 +233,6 @@ export function FavoritesGrid() {
                   )}
                 </div>
               </div>
-
-              <div className="text-xs text-gray-500">
-                Favorilere eklendi: {new Date(product.addedDate).toLocaleDateString('tr-TR')}
-              </div>
             </div>
           </div>
         ))}
@@ -263,7 +259,7 @@ export function FavoritesGrid() {
             <button
               onClick={() => {
                 // Add all favorites to cart
-                favorites.forEach(product => addToCart(product.id))
+                favorites.forEach(productId => addToCart(productId))
               }}
               className="px-6 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors"
             >
